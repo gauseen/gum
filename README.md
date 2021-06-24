@@ -1,4 +1,4 @@
-# git multiple user config manager
+# Git multiple user config manager
 
 ## Install
 
