@@ -2,25 +2,20 @@
   "name": "@gauseen/gum",
   "version": "1.0.0",
   "private": true,
-  "description": "git multiple users manager",
-  "bin": {
-    "gum": "./src/bin/index.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "git multiple user config manager",
+  "bin": "./src/bin/index.js",
+  "scripts": {},
   "keywords": [
     "git",
+    "multiple",
     "config",
-    "users",
+    "user",
     "manager"
   ],
   "author": "gauseen",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^15.12.4",
-    "typescript": "^4.3.4"
+    "@types/node": "^15.12.4"
   },
   "dependencies": {
     "commander": "^7.2.0",
@@ -30,5 +25,9 @@
     "lodash": "^4.17.21",
     "parse-git-config": "^3.0.0",
     "shelljs": "^0.8.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/gauseen/gum/issues"
+  },
+  "homepage": "https://github.com/gauseen/gum#readme"
 }

@@ -1,8 +1,8 @@
-const path = require('path');
 const shell = require('shelljs');
 const commander = require('commander');
 const merge = require('lodash/merge');
 const { Table } = require('console-table-printer');
+
 const {
   printer,
   getPrintTableData,
@@ -12,7 +12,6 @@ const {
   getGlobalGitUserConfig,
   getUsingGitUserConfig,
 } = require('./utils');
-const { option } = require('commander');
 
 const program = new commander.Command('gum');
 
@@ -27,8 +26,8 @@ program
 
 program
   .command('use <group-name>')
-  .description('Set one group for user config')
-  .option('--global', 'git config --global')
+  .description('Use one group name for user config')
+  .option('--global', 'git global config')
   .action(onUse);
 
 program.command('delete <group-name>').description('Delete one group').action(onDelete);
@@ -54,6 +53,11 @@ function onSet(groupName, options) {
     [groupName]: options,
   };
 
+  if (options.name === 'global') {
+    printer(`Group name can't be global`, 'red');
+    return process.exit(1);
+  }
+
   if (!options.name && !options.email) {
     printer(`Name and Email option must have one`, 'red');
     return process.exit(1);
@@ -66,7 +70,8 @@ function onSet(groupName, options) {
     if (err) {
       return process.exit(1);
     }
-    printer(`set ${groupName} group success`, 'green');
+    printer(`Set ${groupName} group success`, 'green');
+    console.log(' ');
   });
 }
 
@@ -97,12 +102,20 @@ function onUse(groupName, options) {
     }
 
     printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
+    console.log(' ');
   } else {
-    printer(`${groupName} group name invalid`, 'red');
+    printer(`${groupName} is invalid group name`, 'red');
+    console.log(' ');
   }
 }
 
 function onDelete(groupName) {
+  if (groupName === 'global') {
+    printer(`Can't delete global`, 'red');
+    console.log(' ');
+    return process.exit(1);
+  }
+
   const gumrcInfo = getGumrcInfo();
   gumrcInfo[groupName] && delete gumrcInfo[groupName];
 
@@ -110,6 +123,7 @@ function onDelete(groupName) {
     if (err) {
       return process.exit(1);
     }
-    printer(`delete ${groupName} group success`, 'green');
+    printer(`Delete ${groupName} group success`, 'green');
+    console.log(' ');
   });
 }
