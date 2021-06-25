@@ -1,6 +1,7 @@
 const shell = require('shelljs');
 const commander = require('commander');
 const merge = require('lodash/merge');
+const isGit = require('is-git-repository');
 const { Table } = require('console-table-printer');
 
 const {
@@ -82,6 +83,12 @@ function onUse(groupName, options) {
   if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');
     shell.exit(1);
+  }
+
+  if (!isGit()) {
+    printer(`Current project not a git repository (or any of the parent directories)`, 'red');
+    console.log(' ');
+    process.exit(1);
   }
 
   if (user) {

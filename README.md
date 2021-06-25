@@ -15,7 +15,7 @@ Currently used name=gauseen email=gauseen@gmail.com
 ┌────────────┬─────────┬─────────────────────────┐
 │ group-name │    name │                   email │
 ├────────────┼─────────┼─────────────────────────┤
-│     global │ gauseen │ gauseen@gmail.com       │
+│    global  │ gauseen │ gauseen@gmail.com       │
 │    user1   │ li si   │ lisi@gmail.com          │
 │    user2   │ wang er │ wanger@gmail.com        │
 └────────────┴─────────┴─────────────────────────┘
