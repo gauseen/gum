@@ -49,6 +49,10 @@ Commands:
 
 ## Change Log
 
+### v1.0.3
+
+- fix: Group name can't be 'global'
+
 ### v1.0.2
 
 - feat: `gum --version` cmd

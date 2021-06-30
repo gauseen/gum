@@ -58,13 +58,15 @@ function onSet(groupName, options) {
     [groupName]: options,
   };
 
-  if (options.name === 'global') {
-    printer(`Group name can't be global`, 'red');
+  if (groupName === 'global') {
+    printer(`Group name can't be 'global'`, 'red');
+    console.log(' ');
     return process.exit(1);
   }
 
   if (!options.name && !options.email) {
     printer(`Name and Email option must have one`, 'red');
+    console.log(' ');
     return process.exit(1);
   }
 
