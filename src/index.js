@@ -14,7 +14,11 @@ const {
   getUsingGitUserConfig,
 } = require('./utils');
 
+const pkg = require('../package.json');
+
 const program = new commander.Command('gum');
+
+program.version(pkg.version);
 
 program.command('list').description('List all the user config group').action(onList);
 

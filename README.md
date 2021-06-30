@@ -32,6 +32,10 @@ Currently used name=li si email=lisi@gmail.com
 ```sh
 Usage: gum [options] [command]
 
+Options:
+  -V, --version               output the version number
+  -h, --help                  display help for command
+
 Commands:
   list                        List all the user config group
   set [options] <group-name>  Set one group for user config
@@ -42,3 +46,10 @@ Commands:
   delete <group-name>         Delete one group
   help [command]              display help for command
 ```
+
+## Change Log
+
+### v1.0.2
+
+- feat: `gum --version` cmd
+- fix: support node v9.0.0

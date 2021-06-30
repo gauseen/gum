@@ -23,8 +23,11 @@ function getAllConfigInfo() {
 }
 
 function getUsingGitUserConfig() {
-  const name = getProjectGitUserConfig()?.name || getGlobalGitUserConfig()?.name;
-  const email = getProjectGitUserConfig()?.email || getGlobalGitUserConfig()?.email;
+  const project = getProjectGitUserConfig() || {};
+  const global = getGlobalGitUserConfig() || {};
+
+  const name = project.name || global.name;
+  const email = project.email || global.email;
   return {
     email,
     name,
