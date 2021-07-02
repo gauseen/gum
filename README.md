@@ -49,6 +49,10 @@ Commands:
 
 ## Change Log
 
+### v1.0.4
+
+- fix: support user.name contain space
+
 ### v1.0.3
 
 - fix: Group name can't be 'global'
