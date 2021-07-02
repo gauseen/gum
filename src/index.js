@@ -100,7 +100,7 @@ function onUse(groupName, options) {
   if (user) {
     const g = options.global ? `--global` : '';
 
-    if (shell.exec(`git config ${g} user.name ${user.name}`).code !== 0) {
+    if (shell.exec(`git config ${g} user.name "${user.name}"`).code !== 0) {
       shell.echo('Error: Git config user.name failed');
     }
     if (shell.exec(`git config ${g} user.email ${user.email}`).code !== 0) {
