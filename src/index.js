@@ -91,7 +91,7 @@ function onUse(groupName, options) {
     shell.exit(1);
   }
 
-  if (!isGit()) {
+  if (!options.global && !isGit()) {
     printer(`Current project not a git repository (or any of the parent directories)`, 'red');
     console.log(' ');
     process.exit(1);

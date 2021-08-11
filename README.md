@@ -49,6 +49,10 @@ Commands:
 
 ## Change Log
 
+### v1.0.5
+
+- feat: Support `gum use <group-name> --global` commands that are not Git repositories
+
 ### v1.0.4
 
 - fix: support user.name contain space
