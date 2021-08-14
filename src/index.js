@@ -131,7 +131,14 @@ function onDelete(groupName) {
   }
 
   const gumrcInfo = getGumrcInfo();
-  gumrcInfo[groupName] && delete gumrcInfo[groupName];
+
+  if (!gumrcInfo[groupName]) {
+    printer(`Can't find ${groupName} group`, 'yellow');
+    console.log(' ');
+    return process.exit(1)
+  }
+
+  delete gumrcInfo[groupName];
 
   setGumrcInfo(gumrcInfo, (err) => {
     if (err) {
