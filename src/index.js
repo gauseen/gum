@@ -86,8 +86,8 @@ function onSet(groupName, options) {
 }
 
 function onUse(groupName, options) {
-  const allConfigInfo = getAllConfigInfo();
-  const user = allConfigInfo[groupName];
+  const { allInfo } = getAllConfigInfo();
+  const user = allInfo[groupName];
 
   if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');
