@@ -19,7 +19,7 @@ function getAllConfigInfo() {
   const globalInfo = getGlobalGitUserConfig();
   const currentGumrcInfo = getGumrcInfo();
   const allInfo = merge({ global: globalInfo }, currentGumrcInfo);
-  return allInfo;
+  return { allInfo, globalInfo };
 }
 
 function getUsingGitUserConfig() {
