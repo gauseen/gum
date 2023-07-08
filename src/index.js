@@ -40,12 +40,15 @@ program.command('delete <group-name>').description('Delete one group').action(on
 program.parse(process.argv);
 
 function onList() {
-  const allConfig = getAllConfigInfo();
+  const { allInfo , globalInfo } = getAllConfigInfo();
   const using = getUsingGitUserConfig();
-  const tableData = getPrintTableData(allConfig);
+  const tableData = getPrintTableData(allInfo);
 
   // currently used user info
   printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
+
+  // Globally used user info
+  printer(`Globally used name=${globalInfo.name} email=${globalInfo.email}`, 'yellow');
 
   // git user config group list
   const pt = new Table();
