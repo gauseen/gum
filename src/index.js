@@ -48,7 +48,7 @@ function onList() {
   printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
 
   // Globally used user info
-  printer(`Global used name=${globalInfo.name} email=${globalInfo.email}`, 'yellow');
+  printer(`Global used name=${globalInfo.name} email=${globalInfo.email}`, 'red');
 
   // git user config group list
   const pt = new Table();
