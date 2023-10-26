@@ -44,10 +44,15 @@ Commands:
   use [options] <group-name>  Use one group name for user config
     --global                  Git global config
   delete <group-name>         Delete one group
+  current                     Show user config in current directory
   help [command]              display help for command
 ```
 
 ## Change Log
+
+### v1.0.6
+
+- feat: Add command `gum current` to show user config in current directory
 
 ### v1.0.5
 

@@ -37,7 +37,16 @@ program
 
 program.command('delete <group-name>').description('Delete one group').action(onDelete);
 
+program
+  .command('current')
+  .description('Show user config in current directory')
+  .action(onCurrent);
+
 program.parse(process.argv);
+
+function printCurrentUser(using) {
+  printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
+}
 
 function onList() {
   const allConfig = getAllConfigInfo();
@@ -45,7 +54,7 @@ function onList() {
   const tableData = getPrintTableData(allConfig);
 
   // currently used user info
-  printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
+  printCurrentUser(using);
 
   // git user config group list
   const pt = new Table();
@@ -115,7 +124,7 @@ function onUse(groupName, options) {
       printer(`Global using name=${globalGitUser.name} email=${globalGitUser.email}`, 'green');
     }
 
-    printer(`Currently used name=${using.name} email=${using.email}`, 'yellow');
+    printCurrentUser(using);
     console.log(' ');
   } else {
     printer(`${groupName} is invalid group name`, 'red');
@@ -140,4 +149,9 @@ function onDelete(groupName) {
     printer(`Delete ${groupName} group success`, 'green');
     console.log(' ');
   });
+}
+
+function onCurrent() {
+  const using = getUsingGitUserConfig();
+  printCurrentUser(using);
 }
