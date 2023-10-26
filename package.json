@@ -1,6 +1,6 @@
 {
   "name": "@gauseen/gum",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "git multiple user config manager",
   "bin": "./bin/index.js",
   "scripts": {},
